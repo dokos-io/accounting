@@ -8,8 +8,16 @@ class Facturedeventes(Document):
 	def autoname(self):
 		prefix, next_no = frappe.db.get_value("Journal", self.journal, ["prefix", "prochain_numero"])
 
+		series = DocType("journal")
+		current = (
+			frappe.qb.from_(series)
+			.where(series.name == self.journal)
+			.for_update()
+			.select("prochain_numero")
+		).run()
+
 		try:
-			frappe.db.get_value("Journal", self.journal, "prefix", next_no + 1)
+			frappe.db.set_value("Journal", self.journal, "prefix", current + 1, debug=True)
 		except:
 			pass
 
