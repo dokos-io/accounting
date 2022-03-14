@@ -6,9 +6,10 @@ frappe.listview_settings['Journal Entry'] = {
 		var colors = {
 			"Validated": "green",
 			"Unvalidated": "red",
-			"Waiting": "blue",
+			"Waiting": "orange",
 		};
 		return [__(doc.status), colors[doc.status], "status,=," + doc.status];
 	},
-	hide_name_column: true
+	hide_name_column: true,
+	has_indicator_for_draft: true
 };

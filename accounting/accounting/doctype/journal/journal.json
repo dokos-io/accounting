@@ -43,7 +43,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-07 16:17:28.668032",
+ "modified": "2022-03-14 10:56:15.729799",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal",
@@ -63,7 +63,7 @@
    "write": 1
   }
  ],
- "sort_field": "modified",
- "sort_order": "DESC",
+ "sort_field": "name",
+ "sort_order": "ASC",
  "states": []
 }
