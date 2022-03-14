@@ -13,7 +13,8 @@
   "status",
   "section_break_5",
   "details",
-  "amended_from"
+  "amended_from",
+  "duration"
  ],
  "fields": [
   {
@@ -75,12 +76,17 @@
    "fieldtype": "Data",
    "label": "Title",
    "reqd": 1
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Select",
+   "label": "Duration"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-09 12:29:12.578425",
+ "modified": "2022-03-14 11:56:43.310606",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal Entry",

@@ -6,4 +6,4 @@ from frappe.model.document import Document
 
 class Customer(Document):
 	def validate(self):
-		self.naming_series = "ma logique"
+		self.customer_type = "Company"
