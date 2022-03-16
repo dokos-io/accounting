@@ -3,6 +3,9 @@
 
 import frappe
 from frappe import _
+
+from frappe.desk.reportview import get
+
 from accounting.accounting.doctype.accounting_controller import AccountingController
 
 class JournalEntry(AccountingController):
@@ -24,3 +27,13 @@ class JournalEntry(AccountingController):
 
 	def set_status(self, status):
 		self.db_set("status", status, commit=True)
+
+
+@frappe.whitelist()
+def get_list():
+	filters = frappe.parse_json(frappe.local.form_dict.filters) if frappe.local.form_dict.filters else []
+	filters.append(["Journal Entry", "status", "=", "Validated"])
+	frappe.local.form_dict.filters = filters
+
+
+	return get()

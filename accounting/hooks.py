@@ -14,7 +14,7 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/accounting/css/accounting.css"
-# app_include_js = "/assets/accounting/js/accounting.js"
+app_include_js = "custom.bundle.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/accounting/css/accounting.css"
@@ -35,6 +35,10 @@ app_license = "MIT"
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+
+boot_session = "accounting.boot.boot_session"
+
+filters_config = "accounting.filters.get_additional_filters_config"
 
 # Home Pages
 # ----------

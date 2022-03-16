@@ -14,16 +14,18 @@
   "section_break_5",
   "details",
   "amended_from",
-  "duration"
+  "duration",
+  "pourcentage"
  ],
  "fields": [
   {
    "fieldname": "journal",
    "fieldtype": "Link",
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Journal",
    "options": "Journal",
-   "reqd": 1
+   "reqd": 1,
+   "width": "200"
   },
   {
    "default": "EUR",
@@ -68,6 +70,8 @@
    "default": "Waiting",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Waiting\nValidated\nUnvalidated"
   },
@@ -81,12 +85,19 @@
    "fieldname": "duration",
    "fieldtype": "Select",
    "label": "Duration"
+  },
+  {
+   "default": "50",
+   "fieldname": "pourcentage",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Pourcentage"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-14 11:56:43.310606",
+ "modified": "2022-03-16 12:05:42.818547",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal Entry",

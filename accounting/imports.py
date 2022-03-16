@@ -21,7 +21,7 @@ def create_customers():
 		}
 	]
 
-	Customer.validate = override_validate
+	Customer.run_before_save_methods = override_validate
 
 	for d in data:
 		frappe.get_doc(d).insert()
