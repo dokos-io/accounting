@@ -13,6 +13,9 @@
   "status",
   "section_break_5",
   "details",
+  "section_break_9",
+  "recap",
+  "section_break_11",
   "amended_from",
   "duration",
   "pourcentage"
@@ -92,12 +95,25 @@
    "fieldtype": "Percent",
    "in_list_view": 1,
    "label": "Pourcentage"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "recap",
+   "fieldtype": "HTML",
+   "label": "Recap"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-03-16 12:05:42.818547",
+ "modified": "2022-03-23 11:49:03.820167",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal Entry",

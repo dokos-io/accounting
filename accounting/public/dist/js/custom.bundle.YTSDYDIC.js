@@ -110,6 +110,7 @@
   });
 
   // ../accounting/accounting/public/js/filter.js
+  frappe.provide("accounting");
   var AFilter = class extends frappe.ui.Filter {
     make_field(df, old_fieldtype) {
       super.make_field(df, old_fieldtype);
@@ -120,8 +121,20 @@
       }
     }
   };
+  frappe.form.link_formatters["Journal"] = function(value, doc, docfield) {
+    return `${value}: BLABLA`;
+  };
   $(document).ready(() => {
-    frappe.ui.Filter = AFilter;
+  });
+
+  // ../accounting/accounting/public/js/formatters.js
+  var AControlCurrency = class extends frappe.ui.form.ControlCurrency {
+    format_for_input(value) {
+      var formatted_value = format_number(value, this.get_number_format(), this.get_precision());
+      return isNaN(Number(value)) ? "" : formatted_value * -1;
+    }
+  };
+  $(document).ready(() => {
   });
 })();
-//# sourceMappingURL=custom.bundle.E6B4OM6I.js.map
+//# sourceMappingURL=custom.bundle.YTSDYDIC.js.map

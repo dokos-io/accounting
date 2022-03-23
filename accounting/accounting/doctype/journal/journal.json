@@ -10,7 +10,8 @@
   "journal",
   "code_journal",
   "prefix",
-  "prochain_numero"
+  "prochain_numero",
+  "url"
  ],
  "fields": [
   {
@@ -39,11 +40,17 @@
    "fieldtype": "Data",
    "label": "Pr\u00e9fixe de facturation",
    "reqd": 1
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL",
+   "options": "URL"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-14 10:56:15.729799",
+ "modified": "2022-03-21 11:39:04.343976",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal",
@@ -65,5 +72,6 @@
  ],
  "sort_field": "name",
  "sort_order": "ASC",
- "states": []
+ "states": [],
+ "title_field": "journal"
 }

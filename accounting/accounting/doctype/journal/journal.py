@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe import _
 from frappe.utils import now_datetime, cint
 from frappe.model.naming import determine_consecutive_week_number
 from frappe.model.document import Document
@@ -12,6 +13,10 @@ class Journal(Document):
 	def get_name_from_journal(self):
 		parts = (self.prefix + ".#####").split('.')
 		return parse_naming_series(self.name, parts)
+
+	@frappe.whitelist()
+	def validate_book(self):
+		return True
 
 def parse_naming_series(journal, parts):
 	n = ''

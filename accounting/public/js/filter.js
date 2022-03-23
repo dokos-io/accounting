@@ -1,3 +1,5 @@
+frappe.provide("accounting")
+
 class AFilter extends frappe.ui.Filter {
 	make_field(df, old_fieldtype) {
 		super.make_field(df, old_fieldtype)
@@ -10,7 +12,14 @@ class AFilter extends frappe.ui.Filter {
 	}
 }
 
+frappe.form.link_formatters['Journal'] = function (value, doc, docfield) {
+	return `${value}: BLABLA`
+};
 
 $(document).ready(() => {
-	frappe.ui.Filter = AFilter
+	//  frappe.ui.Filter = AFilter
 })
+
+// $(document).on("startup", () => {
+// 	console.log("Hello")
+// })
