@@ -14,6 +14,80 @@ frappe.ui.form.on('Journal Entry', {
 			}
 		]);
 		frm.trigger("show_recap")
+
+		frm.trigger("set_tax_values")
+
+
+		frm.page.set_secondary_action(__("Action secondaire"), () => {
+			console.log("Secondaire")
+		},{ icon: 'change', size: 'sm' }
+		)
+
+
+		frm.page.add_menu_item(__("Mon menu"), () => {
+			console.log("Mon menu")
+		},0
+		)
+
+		frm.add_custom_button(__("Bouton personnalisé"), () => {
+			console.log("Mon bouton")
+		}, __("Mon groupe"))
+
+		frm.page.add_inner_button(__("Bouton personnalisé 2"), () => {
+			frappe.call({
+				method: "accounting.accounting.doctype.journal_entry.journal_entry.get_data",
+				args: {
+					doc: frm.doc
+				}
+			})
+			.then(
+				data => {
+					const dialog = new frappe.ui.Dialog({
+						title: "Mon Popup",
+						size: "extra-large",
+						fields: [
+							{
+								"fieldname": "name",
+								"fieldtype": "Data",
+								"label": "Le nom de mon document",
+								"default": frm.doc.name,
+								"read_only": 1
+							},
+							{
+								"fieldname": "resultat",
+								"fieldtype": "Data",
+								"label": "Votre réponse"
+							}
+						],
+						primary_action: () => {
+							dialog.hide()
+							const msg = `
+								<div class="next-action-container">
+									<button class="next-action" data-action="my-action"><span>${__("Click click")}</span></button>
+								</div>
+							`
+							frappe.show_alert({
+								message: __("Yeah"),
+								body: msg,
+								indicator: "orange"
+							}, 25, {
+								"my-action": () => {
+									console.log("Done!")
+								}
+							})
+						},
+						primary_action_label: __("Click click")
+					})
+
+					dialog.show()
+					dialog.set_df_property("resultat", "reqd", 1)
+
+					// frappe.prompt("champ A", () => {
+					// 	//
+					// })
+				}
+			)
+		}, __("Mon groupe"))
 	},
 
 	currency(frm) {
@@ -60,8 +134,32 @@ frappe.ui.form.on('Journal Entry', {
 			columns: getColumns(),
 			data: getData(frm)
 		});
+	},
+
+	status(frm) {
+		console.log(frm.doc.status)
+	},
+
+	set_tax_values(frm) {
+		frm.doc.details.forEach(row => {
+			set_tax_value(frm, row)
+		})
 	}
 });
+
+const tax_map = {
+	"Category 1": [20],
+	"Category 2": [10, 5.5, 2.1],
+}
+
+const set_tax_value = (frm, row) => {
+	if (row.tax_category) {
+		const grid_row = frm.fields_dict["details"].grid.grid_rows_by_docname[row.name]
+		const tax_value_field = grid_row.docfields.filter(f => f.fieldname == "tax_value")[0]
+		tax_value_field.options = tax_map[row.tax_category]
+		grid_row.refresh_field("tax_value")
+	}
+}
 
 frappe.ui.form.on('Journal Entry Details', {
 	details_remove(frm, cdt, cdn) {
@@ -70,6 +168,15 @@ frappe.ui.form.on('Journal Entry Details', {
 
 	account(frm, cdt, cdn) {
 		frm.datatable.refresh(getData(frm), getColumns())
+	},
+
+	tax_category(frm, cdt, cdn) {
+		const row = locals[cdt][cdn]
+		set_tax_value(frm, row)
+	},
+
+	tax_value(frm, cdt, cdn) {
+		//
 	},
 
 	debit(frm, cdt, cdn) {

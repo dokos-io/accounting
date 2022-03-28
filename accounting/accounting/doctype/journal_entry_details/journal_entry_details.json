@@ -8,7 +8,9 @@
  "field_order": [
   "account",
   "debit",
-  "credit"
+  "credit",
+  "tax_category",
+  "tax_value"
  ],
  "fields": [
   {
@@ -30,12 +32,25 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Credit"
+  },
+  {
+   "fieldname": "tax_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tax Category",
+   "options": "Category 1\nCategory 2"
+  },
+  {
+   "fieldname": "tax_value",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tax Value"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-03-09 11:18:23.579770",
+ "modified": "2022-03-28 14:15:27.057744",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal Entry Details",

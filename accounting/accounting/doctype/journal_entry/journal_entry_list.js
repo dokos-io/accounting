@@ -19,7 +19,7 @@ frappe.listview_settings['Journal Entry'] = {
 	onload(listview) {
 		listview.method = "accounting.accounting.doctype.journal_entry.journal_entry.get_list"
 
-		$(listview.page.fields_dict.status.input).empty().add_options(["Validated"])
+		// $(listview.page.fields_dict.status.input).empty().add_options(["Validated"])
 
 		listview.page.add_field({
 			"fieldname": "docstatus",

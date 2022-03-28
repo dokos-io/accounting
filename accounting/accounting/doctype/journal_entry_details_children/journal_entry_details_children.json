@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2022-03-28 10:19:00.399524",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "details"
+ ],
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Data",
+   "label": "Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-03-28 10:19:00.399524",
+ "modified_by": "Administrator",
+ "module": "Accounting",
+ "name": "Journal Entry Details Children",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

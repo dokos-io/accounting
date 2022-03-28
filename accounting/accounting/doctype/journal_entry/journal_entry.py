@@ -28,6 +28,10 @@ class JournalEntry(AccountingController):
 	def set_status(self, status):
 		self.db_set("status", status, commit=True)
 
+@frappe.whitelist()
+def get_data(doc):
+	return frappe.parse_json(doc)
+
 
 @frappe.whitelist()
 def get_list():
