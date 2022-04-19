@@ -1,0 +1,14 @@
+[
+	{
+		"doctype": "Journal",
+		"code_journal":"VEN",
+		"prefix": "VEN-.YYYY.-",
+		"journal": "Ventes"
+	},
+	{
+		"doctype": "Journal",
+		"code_journal":"ACH",
+		"prefix": "ACH-.YYYY.-",
+		"journal": "Achats"
+	}
+]

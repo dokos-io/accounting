@@ -1,0 +1,18 @@
+[
+	{
+		"doctype": "Account",
+		"account_name":"706 - Prestations de services"
+	},
+	{
+		"doctype": "Account",
+		"account_name":"606 - Achats non stockés"
+	},
+    {
+		"doctype": "Account",
+		"account_name":"401 - Fournisseurs"
+	},
+    {
+		"doctype": "Account",
+		"account_name":"411 - Clients"
+	}
+]
