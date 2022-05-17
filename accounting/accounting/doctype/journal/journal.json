@@ -11,7 +11,8 @@
   "code_journal",
   "prefix",
   "prochain_numero",
-  "url"
+  "url",
+  "journal_type"
  ],
  "fields": [
   {
@@ -46,11 +47,17 @@
    "fieldtype": "Data",
    "label": "URL",
    "options": "URL"
+  },
+  {
+   "fieldname": "journal_type",
+   "fieldtype": "Select",
+   "label": "Type de journal",
+   "options": "A\nB"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-21 11:39:04.343976",
+ "modified": "2022-05-09 13:31:07.106190",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Journal",

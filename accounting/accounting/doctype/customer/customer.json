@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2022-03-07 15:28:51.951884",
@@ -9,7 +10,11 @@
  "field_order": [
   "naming_series",
   "customer_name",
-  "customer_type"
+  "customer_type",
+  "description",
+  "published",
+  "route",
+  "selection"
  ],
  "fields": [
   {
@@ -27,6 +32,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Customer Name",
+   "read_only_depends_on": "eval:doc.status == \"Validated\"",
    "reqd": 1
   },
   {
@@ -36,11 +42,38 @@
    "label": "Customer Type",
    "options": "Individual\nCompany",
    "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description",
+   "translatable": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Route"
+  },
+  {
+   "fieldname": "selection",
+   "fieldtype": "Select",
+   "label": "Selection",
+   "set_only_once": 1
   }
  ],
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_published_field": "published",
  "links": [],
- "modified": "2022-03-07 15:35:01.659269",
+ "modified": "2022-05-17 11:01:18.836019",
  "modified_by": "Administrator",
  "module": "Accounting",
  "name": "Customer",
@@ -61,7 +94,9 @@
    "write": 1
   }
  ],
+ "route": "customer",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

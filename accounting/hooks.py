@@ -17,7 +17,7 @@ app_license = "MIT"
 app_include_js = "custom.bundle.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/accounting/css/accounting.css"
+web_include_css = "/assets/accounting/css/website.css"
 # web_include_js = "/assets/accounting/js/accounting.js"
 
 # include custom scss in every website theme (without file extension ".scss")
@@ -108,13 +108,11 @@ filters_config = "accounting.filters.get_additional_filters_config"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Communication": {
+		"after_insert": "accounting.doctype.customer.customer.update_customer_description"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
